@@ -8,9 +8,7 @@ package domino.vista;
 import domino.control.ControlIG;
 import domino.model.Joc;
 import domino.model.Jugador;
-import java.awt.Rectangle;
 import javax.swing.JLabel;
-import javax.swing.WindowConstants;
 
 /**
  *
@@ -29,6 +27,8 @@ public class InterficieGrafica extends javax.swing.JFrame {
         initComponents();
         this.control = control;
         setBounds(0, 0, WIDTH, HEIGHT);
+        setResizable(false);
+        setLocationRelativeTo(null);
         setResizable(false);
     }
 
@@ -96,7 +96,6 @@ public class InterficieGrafica extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\background.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMaximumSize(new java.awt.Dimension(1300, 700));
         jLabel1.setMinimumSize(new java.awt.Dimension(1300, 700));
@@ -111,43 +110,20 @@ public class InterficieGrafica extends javax.swing.JFrame {
         tfUser.setText("USER");
         jPanel5.add(tfUser);
         tfUser.setBounds(10, 10, 50, 20);
-
-        fU7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fU7.setText("jLabel2");
         jPanel5.add(fU7);
         fU7.setBounds(10, 220, 50, 30);
-
-        fU1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fU1.setText("jLabel2");
         jPanel5.add(fU1);
         fU1.setBounds(10, 40, 50, 30);
-
-        fU2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fU2.setText("jLabel2");
         jPanel5.add(fU2);
         fU2.setBounds(10, 70, 50, 30);
-
-        fU3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fU3.setText("jLabel2");
         jPanel5.add(fU3);
         fU3.setBounds(10, 100, 50, 30);
-
-        fU4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fU4.setText("jLabel2");
         jPanel5.add(fU4);
         fU4.setBounds(10, 130, 50, 30);
-
-        fU5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fU5.setText("jLabel2");
         jPanel5.add(fU5);
         fU5.setBounds(10, 160, 50, 30);
-
-        fU6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fU6.setText("jLabel2");
         jPanel5.add(fU6);
         fU6.setBounds(10, 190, 50, 30);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\wallpaper2.jpg")); // NOI18N
         jPanel5.add(jLabel6);
         jLabel6.setBounds(0, 0, 1940, 1190);
 
@@ -162,43 +138,20 @@ public class InterficieGrafica extends javax.swing.JFrame {
         tfBot1.setText("BOT1");
         jPanel8.add(tfBot1);
         tfBot1.setBounds(10, 10, 50, 20);
-
-        fB17.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB17.setText("jLabel2");
         jPanel8.add(fB17);
         fB17.setBounds(10, 220, 50, 30);
-
-        fB11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB11.setText("jLabel2");
         jPanel8.add(fB11);
         fB11.setBounds(10, 40, 50, 30);
-
-        fB12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB12.setText("jLabel2");
         jPanel8.add(fB12);
         fB12.setBounds(10, 70, 50, 30);
-
-        fB13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB13.setText("jLabel2");
         jPanel8.add(fB13);
         fB13.setBounds(10, 100, 50, 30);
-
-        fB14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB14.setText("jLabel2");
         jPanel8.add(fB14);
         fB14.setBounds(10, 130, 50, 30);
-
-        fB15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB15.setText("jLabel2");
         jPanel8.add(fB15);
         fB15.setBounds(10, 160, 50, 30);
-
-        fB16.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB16.setText("jLabel2");
         jPanel8.add(fB16);
         fB16.setBounds(10, 190, 50, 30);
-
-        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\wallpaper2.jpg")); // NOI18N
         jPanel8.add(jLabel21);
         jLabel21.setBounds(0, 0, 1940, 1190);
 
@@ -235,43 +188,20 @@ public class InterficieGrafica extends javax.swing.JFrame {
         tfBot2.setText("BOT2");
         jPanel9.add(tfBot2);
         tfBot2.setBounds(10, 10, 50, 20);
-
-        fB27.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB27.setText("jLabel2");
         jPanel9.add(fB27);
         fB27.setBounds(10, 220, 50, 30);
-
-        fB21.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB21.setText("jLabel2");
         jPanel9.add(fB21);
         fB21.setBounds(10, 40, 50, 30);
-
-        fB22.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB22.setText("jLabel2");
         jPanel9.add(fB22);
         fB22.setBounds(10, 70, 50, 30);
-
-        fB23.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB23.setText("jLabel2");
         jPanel9.add(fB23);
         fB23.setBounds(10, 100, 50, 30);
-
-        fB24.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB24.setText("jLabel2");
         jPanel9.add(fB24);
         fB24.setBounds(10, 130, 50, 30);
-
-        fB25.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB25.setText("jLabel2");
         jPanel9.add(fB25);
         fB25.setBounds(10, 160, 50, 30);
-
-        fB26.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB26.setText("jLabel2");
         jPanel9.add(fB26);
         fB26.setBounds(10, 190, 50, 30);
-
-        jLabel29.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\wallpaper2.jpg")); // NOI18N
         jPanel9.add(jLabel29);
         jLabel29.setBounds(0, 0, 1940, 1190);
 
@@ -305,43 +235,20 @@ public class InterficieGrafica extends javax.swing.JFrame {
         tfBot3.setText("BOT3");
         jPanel10.add(tfBot3);
         tfBot3.setBounds(10, 10, 50, 20);
-
-        fB37.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB37.setText("jLabel2");
         jPanel10.add(fB37);
         fB37.setBounds(10, 220, 50, 30);
-
-        fB31.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB31.setText("jLabel2");
         jPanel10.add(fB31);
         fB31.setBounds(10, 40, 50, 30);
-
-        fB32.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB32.setText("jLabel2");
         jPanel10.add(fB32);
         fB32.setBounds(10, 70, 50, 30);
-
-        fB33.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB33.setText("jLabel2");
         jPanel10.add(fB33);
         fB33.setBounds(10, 100, 50, 30);
-
-        fB34.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB34.setText("jLabel2");
         jPanel10.add(fB34);
         fB34.setBounds(10, 130, 50, 30);
-
-        fB35.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB35.setText("jLabel2");
         jPanel10.add(fB35);
         fB35.setBounds(10, 160, 50, 30);
-
-        fB36.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\imgUsers\\[0,0].png")); // NOI18N
-        fB36.setText("jLabel2");
         jPanel10.add(fB36);
         fB36.setBounds(10, 190, 50, 30);
-
-        jLabel37.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eric\\Desktop\\DAM\\M3\\UF5\\Domino1\\Domino1\\assets\\wallpaper2.jpg")); // NOI18N
         jPanel10.add(jLabel37);
         jLabel37.setBounds(0, 0, 1940, 1190);
 

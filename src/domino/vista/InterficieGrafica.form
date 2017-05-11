@@ -61,9 +61,6 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\background.jpg"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1300, 700]"/>
@@ -105,12 +102,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="fU7">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="10" y="220" width="50" height="30"/>
@@ -118,12 +109,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="fU1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="10" y="40" width="50" height="30"/>
@@ -131,12 +116,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="fU2">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="10" y="70" width="50" height="30"/>
@@ -144,12 +123,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="fU3">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="10" y="100" width="50" height="30"/>
@@ -157,12 +130,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="fU4">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="10" y="130" width="50" height="30"/>
@@ -170,12 +137,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="fU5">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="10" y="160" width="50" height="30"/>
@@ -183,12 +144,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="fU6">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="10" y="190" width="50" height="30"/>
@@ -196,11 +151,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\wallpaper2.jpg"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="0" width="1940" height="1190"/>
@@ -272,12 +222,6 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="fB17">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel2"/>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="10" y="220" width="50" height="30"/>
@@ -285,12 +229,6 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="fB11">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel2"/>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="10" y="40" width="50" height="30"/>
@@ -298,12 +236,6 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="fB12">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel2"/>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="10" y="70" width="50" height="30"/>
@@ -311,12 +243,6 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="fB13">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel2"/>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="10" y="100" width="50" height="30"/>
@@ -324,12 +250,6 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="fB14">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel2"/>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="10" y="130" width="50" height="30"/>
@@ -337,12 +257,6 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="fB15">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel2"/>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="10" y="160" width="50" height="30"/>
@@ -350,12 +264,6 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="fB16">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel2"/>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="10" y="190" width="50" height="30"/>
@@ -363,11 +271,6 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel21">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\wallpaper2.jpg"/>
-                    </Property>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="0" y="0" width="1940" height="1190"/>
@@ -432,12 +335,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB27">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="220" width="50" height="30"/>
@@ -445,12 +342,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB21">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="40" width="50" height="30"/>
@@ -458,12 +349,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB22">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="70" width="50" height="30"/>
@@ -471,12 +356,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB23">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="100" width="50" height="30"/>
@@ -484,12 +363,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB24">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="130" width="50" height="30"/>
@@ -497,12 +370,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB25">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="160" width="50" height="30"/>
@@ -510,12 +377,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB26">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="190" width="50" height="30"/>
@@ -523,11 +384,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel29">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\wallpaper2.jpg"/>
-                </Property>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="0" y="0" width="1940" height="1190"/>
@@ -590,12 +446,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB37">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="220" width="50" height="30"/>
@@ -603,12 +453,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB31">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="40" width="50" height="30"/>
@@ -616,12 +460,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB32">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="70" width="50" height="30"/>
@@ -629,12 +467,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB33">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="100" width="50" height="30"/>
@@ -642,12 +474,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB34">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="130" width="50" height="30"/>
@@ -655,12 +481,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB35">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="160" width="50" height="30"/>
@@ -668,12 +488,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="fB36">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\imgUsers\[0,0].png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="190" width="50" height="30"/>
@@ -681,11 +495,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel37">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Eric\Desktop\DAM\M3\UF5\Domino1\Domino1\assets\wallpaper2.jpg"/>
-                </Property>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="0" y="0" width="1940" height="1190"/>
