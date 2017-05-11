@@ -197,7 +197,7 @@ public class Joc {
         return minimPunts;
     }
 
-    private Jugador trobarGuanyador() {
+    public Jugador trobarGuanyador() {
         Jugador guanya;
         ArrayList<Jugador> minimPunts = comptPunts();
         if (minimPunts.size() == 1) {

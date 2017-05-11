@@ -1,5 +1,6 @@
 package domino;
 
+import domino.control.ControlIG;
 import domino.vista.InterficieGrafica;
 import javax.swing.SwingUtilities;
 
@@ -9,8 +10,7 @@ public class Domino {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                InterficieGrafica ig = new InterficieGrafica();
-                ig.setVisible(true);
+                ControlIG control = new ControlIG();
             }
         });
 
