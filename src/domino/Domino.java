@@ -11,6 +11,7 @@ public class Domino {
             @Override
             public void run() {
                 ControlIG control = new ControlIG();
+                control.inici();
             }
         });
 

@@ -21,9 +21,16 @@ public class Fitxa {
         valors[1] = aux;
     }
 
+    public void setValors(int[] valors) {
+        this.valors = valors;
+    }
+
+    
+    
     @Override
     public String toString() {
-        return "Fitxa{" + "valors={" + valors[0] + ", " + valors[1] + '}';
+        return "[" + valors[0] + "," + valors[1] + ']';
     }
+    
 
 }
