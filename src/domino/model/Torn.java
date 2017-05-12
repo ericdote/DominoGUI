@@ -41,6 +41,7 @@ public class Torn {
     public void inicial() {
         joc.getFitxesJugades().add(joc.getFitxaInicial());
         joc.getJugadors()[joc.getTorn()].colocarFitxa(joc.getFitxaInicial());
+       
     }
 
     private boolean isDoble(Fitxa f) {

@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -27,17 +28,20 @@ public class InterficieGrafica extends javax.swing.JFrame {
     private Jugador jug;
     private Joc joc;
     private String[] nomJugs;
+    int contador = 0;
 
     /**
      * Creates new form domino
+     *
+     * @param control
      */
     public InterficieGrafica(ControlIG control) {
         initComponents();
-        this.control = control;
         setBounds(0, 0, WIDTH, HEIGHT);
         setResizable(false);
         setLocationRelativeTo(null);
         setResizable(false);
+        this.control = control;
         this.joc = control.getJoc();
     }
 
@@ -53,11 +57,11 @@ public class InterficieGrafica extends javax.swing.JFrame {
      * Metode que seteja les imatges del jugador.
      */
     public void setImgFitxer() {
-        JLabel[] posFichas = {fU1, fU2, fU3, fU4, fU5, fU6, fU7};
+        JButton[] posFichas = {fU1, fU2, fU3, fU4, fU5, fU6, fU7};
         for (int i = 0; i < 7; i++) {
-            ImageIcon imagenFicha
-                    = new ImageIcon(getClass().getResource("/domino/assets/usuario/" + joc.getJugadors()[0].getFitxes().get(i).toString() + ".png"));
+            ImageIcon imagenFicha = new ImageIcon(getClass().getResource("/domino/assets/usuario/" + joc.getJugadors()[0].getFitxes().get(i).toString() + ".png"));
             posFichas[i].setIcon(imagenFicha);
+            posFichas[i].setText(joc.getJugadors()[0].getFitxes().get(i).toString());
         }
     }
 
@@ -66,23 +70,35 @@ public class InterficieGrafica extends javax.swing.JFrame {
      *
      * @param fitxa
      */
-    public void setFitxasTauler(Fitxa fitxa) {
-        System.out.println(fitxa + "je");
-        int contador = 0;
-        ImageIcon imagenFicha = new ImageIcon(getClass().getResource("/domino/assets/usuario/" + fitxa + ".png"));
-        switch(contador){
-            case 0:
-                img1.setIcon(imagenFicha);
-                        panelTauler.add(img1);//TODO
-                break;
-            case 1:
-                img2.setIcon(imagenFicha);
-                        panelTauler.add(img2);
-                break;
+    public void setFitxasTauler(Fitxa fitxes, boolean costat) {
+        System.out.println(fitxes.toString());
+        int costatNum = setCostat(costat);
+        ImageIcon imagenFicha = new ImageIcon(getClass().getResource("/domino/assets/tablero/" + fitxes.toString() + ".png"));
+        if (contador == 0) {
+            fitxa1.setIcon(imagenFicha);
+        } else if (contador == 1 && costatNum == 0) {
+            fitxa2.setIcon(imagenFicha);
+        } else if (contador == 1 && costatNum == 1) {
+            fitxa3.setIcon(imagenFicha);
         }
+        panelTauler.updateUI();
         contador++;
-        panelTauler.add(img3);
         System.out.println("OLA");
+    }
+
+    public int setCostat(boolean costat) {
+        if (costat) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    public int tornJugador() {
+        String[] options = {"Passar", "jugar"};
+        int opcion = JOptionPane.showOptionDialog(null, "Escoje una Opcion:", "opciones", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        System.out.println(opcion);
+        return opcion;
     }
 
     /**
@@ -96,13 +112,13 @@ public class InterficieGrafica extends javax.swing.JFrame {
 
         jPanel5 = new javax.swing.JPanel();
         tfUser = new javax.swing.JTextField();
-        fU7 = new javax.swing.JLabel();
-        fU1 = new javax.swing.JLabel();
-        fU2 = new javax.swing.JLabel();
-        fU3 = new javax.swing.JLabel();
-        fU4 = new javax.swing.JLabel();
-        fU5 = new javax.swing.JLabel();
-        fU6 = new javax.swing.JLabel();
+        fU7 = new javax.swing.JButton();
+        fU1 = new javax.swing.JButton();
+        fU2 = new javax.swing.JButton();
+        fU3 = new javax.swing.JButton();
+        fU4 = new javax.swing.JButton();
+        fU5 = new javax.swing.JButton();
+        fU6 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -139,11 +155,11 @@ public class InterficieGrafica extends javax.swing.JFrame {
         fB36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         panelTauler = new javax.swing.JPanel();
-        btnJugar = new javax.swing.JButton();
-        btnPasar = new javax.swing.JButton();
-        img1 = new javax.swing.JLabel();
-        img2 = new javax.swing.JLabel();
-        img3 = new javax.swing.JLabel();
+        fitxa3 = new javax.swing.JLabel();
+        fitxa1 = new javax.swing.JLabel();
+        fitxa2 = new javax.swing.JLabel();
+        btnEsquerra = new javax.swing.JButton();
+        btnDreta = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         inicioOption = new javax.swing.JMenu();
         confOption = new javax.swing.JMenu();
@@ -160,18 +176,44 @@ public class InterficieGrafica extends javax.swing.JFrame {
         tfUser.setText("USER");
         jPanel5.add(tfUser);
         tfUser.setBounds(10, 10, 50, 20);
+
+        fU7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
+        fU7.setEnabled(false);
         jPanel5.add(fU7);
         fU7.setBounds(10, 220, 50, 30);
+
+        fU1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
+        fU1.setEnabled(false);
+        fU1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fU1ActionPerformed(evt);
+            }
+        });
         jPanel5.add(fU1);
         fU1.setBounds(10, 40, 50, 30);
+
+        fU2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
+        fU2.setEnabled(false);
         jPanel5.add(fU2);
         fU2.setBounds(10, 70, 50, 30);
+
+        fU3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
+        fU3.setEnabled(false);
         jPanel5.add(fU3);
         fU3.setBounds(10, 100, 50, 30);
+
+        fU4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
+        fU4.setEnabled(false);
         jPanel5.add(fU4);
         fU4.setBounds(10, 130, 50, 30);
+
+        fU5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
+        fU5.setEnabled(false);
         jPanel5.add(fU5);
         fU5.setBounds(10, 160, 50, 30);
+
+        fU6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
+        fU6.setEnabled(false);
         jPanel5.add(fU6);
         fU6.setBounds(10, 190, 50, 30);
         jPanel5.add(jLabel6);
@@ -369,61 +411,32 @@ public class InterficieGrafica extends javax.swing.JFrame {
         jPanel2.setBounds(1090, 250, 150, 270);
 
         panelTauler.setBackground(new java.awt.Color(204, 255, 204));
+        panelTauler.setLayout(null);
 
-        btnJugar.setText("Jugar");
-        btnJugar.setEnabled(false);
+        fitxa3.setText("w");
+        panelTauler.add(fitxa3);
+        fitxa3.setBounds(350, 230, 50, 50);
+        panelTauler.add(fitxa1);
+        fitxa1.setBounds(400, 230, 50, 50);
 
-        btnPasar.setText("Pasar");
-        btnPasar.setEnabled(false);
+        fitxa2.setText("e");
+        panelTauler.add(fitxa2);
+        fitxa2.setBounds(450, 230, 50, 50);
 
-        img1.setMaximumSize(new java.awt.Dimension(25, 50));
-        img1.setMinimumSize(new java.awt.Dimension(25, 50));
-        img1.setPreferredSize(new java.awt.Dimension(25, 50));
-        img1.setRequestFocusEnabled(false);
+        btnEsquerra.setText("Dreta");
+        btnEsquerra.setEnabled(false);
+        panelTauler.add(btnEsquerra);
+        btnEsquerra.setBounds(420, 480, 80, 23);
 
-        img2.setMaximumSize(new java.awt.Dimension(25, 50));
-        img2.setMinimumSize(new java.awt.Dimension(25, 50));
-        img2.setPreferredSize(new java.awt.Dimension(25, 50));
-        img2.setRequestFocusEnabled(false);
-
-        img3.setMaximumSize(new java.awt.Dimension(25, 50));
-        img3.setMinimumSize(new java.awt.Dimension(25, 50));
-        img3.setPreferredSize(new java.awt.Dimension(25, 50));
-        img3.setRequestFocusEnabled(false);
-
-        javax.swing.GroupLayout panelTaulerLayout = new javax.swing.GroupLayout(panelTauler);
-        panelTauler.setLayout(panelTaulerLayout);
-        panelTaulerLayout.setHorizontalGroup(
-            panelTaulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTaulerLayout.createSequentialGroup()
-                .addContainerGap(321, Short.MAX_VALUE)
-                .addComponent(btnPasar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(169, 169, 169)
-                .addComponent(btnJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(307, 307, 307))
-            .addGroup(panelTaulerLayout.createSequentialGroup()
-                .addGap(339, 339, 339)
-                .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(img3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelTaulerLayout.setVerticalGroup(
-            panelTaulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTaulerLayout.createSequentialGroup()
-                .addContainerGap(279, Short.MAX_VALUE)
-                .addGroup(panelTaulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(img1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(img2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(img3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(154, 154, 154)
-                .addGroup(panelTaulerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnJugar)
-                    .addComponent(btnPasar))
-                .addContainerGap())
-        );
+        btnDreta.setText("Esquerra");
+        btnDreta.setEnabled(false);
+        btnDreta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDretaActionPerformed(evt);
+            }
+        });
+        panelTauler.add(btnDreta);
+        btnDreta.setBounds(280, 480, 80, 23);
 
         getContentPane().add(panelTauler);
         panelTauler.setBounds(150, 0, 940, 520);
@@ -449,10 +462,21 @@ public class InterficieGrafica extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnDretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDretaActionPerformed
+
+    }//GEN-LAST:event_btnDretaActionPerformed
+
+    private void fU1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fU1ActionPerformed
+        setFitxaJug(fU1.getText());
+    }//GEN-LAST:event_fU1ActionPerformed
+
+    public String setFitxaJug(String nom) {
+        return nom;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnJugar;
-    private javax.swing.JButton btnPasar;
+    private javax.swing.JButton btnDreta;
+    private javax.swing.JButton btnEsquerra;
     private javax.swing.JMenu confOption;
     private javax.swing.JLabel fB11;
     private javax.swing.JLabel fB12;
@@ -475,16 +499,16 @@ public class InterficieGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel fB35;
     private javax.swing.JLabel fB36;
     private javax.swing.JLabel fB37;
-    private javax.swing.JLabel fU1;
-    private javax.swing.JLabel fU2;
-    private javax.swing.JLabel fU3;
-    private javax.swing.JLabel fU4;
-    private javax.swing.JLabel fU5;
-    private javax.swing.JLabel fU6;
-    private javax.swing.JLabel fU7;
-    private javax.swing.JLabel img1;
-    private javax.swing.JLabel img2;
-    private javax.swing.JLabel img3;
+    private javax.swing.JButton fU1;
+    private javax.swing.JButton fU2;
+    private javax.swing.JButton fU3;
+    private javax.swing.JButton fU4;
+    private javax.swing.JButton fU5;
+    private javax.swing.JButton fU6;
+    private javax.swing.JButton fU7;
+    private javax.swing.JLabel fitxa1;
+    private javax.swing.JLabel fitxa2;
+    private javax.swing.JLabel fitxa3;
     private javax.swing.JMenu inicioOption;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel29;
@@ -517,4 +541,19 @@ public class InterficieGrafica extends javax.swing.JFrame {
         this.nomJugs = nomJugs;
     }
 
+    public JButton getBtnDreta() {
+        return btnDreta;
+    }
+
+    public void setBtnDreta(JButton btnDreta) {
+        this.btnDreta = btnDreta;
+    }
+
+    public JButton getBtnEsquerra() {
+        return btnEsquerra;
+    }
+
+    public void setBtnEsquerra(JButton btnEsquerra) {
+        this.btnEsquerra = btnEsquerra;
+    }
 }
