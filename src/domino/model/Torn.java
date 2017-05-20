@@ -35,7 +35,7 @@ public class Torn {
         return correcte;
     }
     public void passar(){
-        joc.setComptPassar( joc.getComptPassar()+1);
+        joc.setComptPassar(joc.getComptPassar()+1);
     }
 
     public void inicial() {
@@ -54,7 +54,6 @@ public class Torn {
             if (f.getValors()[0] == joc.getFitxesJugades().getFirst().getValors()[1]) {
                 correcte = true;
             } else if (f.getValors()[1] == joc.getFitxesJugades().getFirst().getValors()[1]) {
-                f.canviarOrientacio();
                 correcte = true;
             }
         } else {

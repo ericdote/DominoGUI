@@ -10,8 +10,15 @@ import domino.model.Fitxa;
 import domino.model.Joc;
 import domino.model.Jugador;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -28,7 +35,8 @@ public class InterficieGrafica extends javax.swing.JFrame {
     private Jugador jug;
     private Joc joc;
     private String[] nomJugs;
-    int contador = 0;
+    private Fitxa fitx;
+    private ActionListener al;
 
     /**
      * Creates new form domino
@@ -59,31 +67,29 @@ public class InterficieGrafica extends javax.swing.JFrame {
     public void setImgFitxer() {
         JButton[] posFichas = {fU1, fU2, fU3, fU4, fU5, fU6, fU7};
         for (int i = 0; i < 7; i++) {
-            ImageIcon imagenFicha = new ImageIcon(getClass().getResource("/domino/assets/usuario/" + joc.getJugadors()[0].getFitxes().get(i).toString() + ".png"));
-            posFichas[i].setIcon(imagenFicha);
-            posFichas[i].setText(joc.getJugadors()[0].getFitxes().get(i).toString());
+            if (joc.getJugadors()[0].getFitxes().get(i).toString().equals("[6,6]")) {
+                posFichas[i].setVisible(false);
+            } else {
+                ImageIcon imagenFicha = new ImageIcon(getClass().getResource("assets/usuario/" + joc.getJugadors()[0].getFitxes().get(i).toString() + ".png"));
+                posFichas[i].setIcon(imagenFicha);
+                posFichas[i].setName(joc.getJugadors()[0].getFitxes().get(i).toString());
+                posFichas[i].setText(joc.getJugadors()[0].getFitxes().get(i).toString());
+            }
         }
     }
 
     /**
      * Metode per posar imatges de les fitxes al tauler.
      *
-     * @param fitxa
+     * @param fitxesJugades
      */
-    public void setFitxasTauler(Fitxa fitxes, boolean costat) {
-        System.out.println(fitxes.toString());
-        int costatNum = setCostat(costat);
-        ImageIcon imagenFicha = new ImageIcon(getClass().getResource("/domino/assets/tablero/" + fitxes.toString() + ".png"));
-        if (contador == 0) {
-            fitxa1.setIcon(imagenFicha);
-        } else if (contador == 1 && costatNum == 0) {
-            fitxa2.setIcon(imagenFicha);
-        } else if (contador == 1 && costatNum == 1) {
-            fitxa3.setIcon(imagenFicha);
+    public void setFitxasTauler(ArrayDeque<Fitxa> fitxesJugades) {
+        int contador = 0;
+        for (Fitxa fitxesJugade : fitxesJugades) {
+            contador++;
+            JLabel lbl = seleccionaLabel(contador);
+            lbl.setIcon(new ImageIcon(getClass().getResource("assets/tablero/" + fitxesJugade.toString() + ".png")));
         }
-        panelTauler.updateUI();
-        contador++;
-        System.out.println("OLA");
     }
 
     public int setCostat(boolean costat) {
@@ -95,10 +101,72 @@ public class InterficieGrafica extends javax.swing.JFrame {
     }
 
     public int tornJugador() {
-        String[] options = {"Passar", "jugar"};
+        String[] options = {"Passar", "Jugar"};
         int opcion = JOptionPane.showOptionDialog(null, "Escoje una Opcion:", "opciones", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
-        System.out.println(opcion);
         return opcion;
+    }
+
+    public int escogirPosicion() {
+        String[] options = {"Esquerra", "Dreta"};
+        int opcion = JOptionPane.showOptionDialog(null, "Escoje una Opcion:", "opciones", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        return opcion;
+    }
+
+    public int escogirFitxa() {
+        List<String> option = new ArrayList<>();
+        for (Fitxa fitxe : joc.getJugadors()[0].getFitxes()) {
+            option.add(fitxe.toString());
+        }
+        String[] options = new String[option.size()];
+        for (int i = 0; i < options.length; i++) {
+            options[i] = option.get(i);
+        }
+        int opcion = JOptionPane.showOptionDialog(null, "Escoje una Opcion:", "opciones", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        return opcion;
+    }
+
+    public Fitxa seleccionarFitxaJug() {
+        int fitxaEscogida = escogirFitxa();
+        hideFitxes(fitxaEscogida);
+        crearFitxa(joc.getJugadors()[0].getFitxes().get(fitxaEscogida).toString());
+        return fitx;
+    }
+
+    public void crearFitxa(String valorsFitxa) {
+        valorsFitxa = valorsFitxa.replace("[", "");
+        valorsFitxa = valorsFitxa.replace("]", "");
+        String[] valor = valorsFitxa.split(",");
+        int[] val = new int[valor.length];
+        for (int i = 0; i < valor.length; i++) {
+            val[i] = Integer.parseInt(valor[i]);
+        }
+        fitx = new Fitxa(val);
+    }
+
+    public void hideFitxes(int fitxaPosicio) {
+        switch (fitxaPosicio) {
+            case 1:
+                fU1.setVisible(false);
+                break;
+            case 2:
+                fU2.setVisible(false);
+                break;
+            case 3:
+                fU3.setVisible(false);
+                break;
+            case 4:
+                fU4.setVisible(false);
+                break;
+            case 5:
+                fU5.setVisible(false);
+                break;
+            case 6:
+                fU6.setVisible(false);
+                break;
+            case 7:
+                fU7.setVisible(false);
+                break;
+        }
     }
 
     /**
@@ -110,7 +178,7 @@ public class InterficieGrafica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel5 = new javax.swing.JPanel();
+        panelbuttons = new javax.swing.JPanel();
         tfUser = new javax.swing.JTextField();
         fU7 = new javax.swing.JButton();
         fU1 = new javax.swing.JButton();
@@ -155,11 +223,34 @@ public class InterficieGrafica extends javax.swing.JFrame {
         fB36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         panelTauler = new javax.swing.JPanel();
-        fitxa3 = new javax.swing.JLabel();
-        fitxa1 = new javax.swing.JLabel();
-        fitxa2 = new javax.swing.JLabel();
-        btnEsquerra = new javax.swing.JButton();
-        btnDreta = new javax.swing.JButton();
+        l2 = new javax.swing.JLabel();
+        l1 = new javax.swing.JLabel();
+        l4 = new javax.swing.JLabel();
+        l3 = new javax.swing.JLabel();
+        l8 = new javax.swing.JLabel();
+        l5 = new javax.swing.JLabel();
+        l7 = new javax.swing.JLabel();
+        l6 = new javax.swing.JLabel();
+        l18 = new javax.swing.JLabel();
+        l15 = new javax.swing.JLabel();
+        l14 = new javax.swing.JLabel();
+        l13 = new javax.swing.JLabel();
+        l12 = new javax.swing.JLabel();
+        l10 = new javax.swing.JLabel();
+        l9 = new javax.swing.JLabel();
+        l11 = new javax.swing.JLabel();
+        l16 = new javax.swing.JLabel();
+        l17 = new javax.swing.JLabel();
+        l19 = new javax.swing.JLabel();
+        l20 = new javax.swing.JLabel();
+        l21 = new javax.swing.JLabel();
+        l22 = new javax.swing.JLabel();
+        l23 = new javax.swing.JLabel();
+        l24 = new javax.swing.JLabel();
+        l25 = new javax.swing.JLabel();
+        l26 = new javax.swing.JLabel();
+        l27 = new javax.swing.JLabel();
+        l28 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         inicioOption = new javax.swing.JMenu();
         confOption = new javax.swing.JMenu();
@@ -170,57 +261,55 @@ public class InterficieGrafica extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel5.setLayout(null);
+        panelbuttons.setLayout(null);
 
         tfUser.setEditable(false);
         tfUser.setText("USER");
-        jPanel5.add(tfUser);
+        panelbuttons.add(tfUser);
         tfUser.setBounds(10, 10, 50, 20);
 
         fU7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
-        fU7.setEnabled(false);
-        jPanel5.add(fU7);
+        panelbuttons.add(fU7);
         fU7.setBounds(10, 220, 50, 30);
 
         fU1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
-        fU1.setEnabled(false);
+        fU1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                fU1MousePressed(evt);
+            }
+        });
         fU1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fU1ActionPerformed(evt);
             }
         });
-        jPanel5.add(fU1);
+        panelbuttons.add(fU1);
         fU1.setBounds(10, 40, 50, 30);
 
         fU2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
-        fU2.setEnabled(false);
-        jPanel5.add(fU2);
+        panelbuttons.add(fU2);
         fU2.setBounds(10, 70, 50, 30);
 
         fU3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
-        fU3.setEnabled(false);
-        jPanel5.add(fU3);
+        panelbuttons.add(fU3);
         fU3.setBounds(10, 100, 50, 30);
 
         fU4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
-        fU4.setEnabled(false);
-        jPanel5.add(fU4);
+        panelbuttons.add(fU4);
         fU4.setBounds(10, 130, 50, 30);
 
         fU5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
-        fU5.setEnabled(false);
-        jPanel5.add(fU5);
+        panelbuttons.add(fU5);
         fU5.setBounds(10, 160, 50, 30);
 
         fU6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/domino/assets/usuario/[0,0].png"))); // NOI18N
-        fU6.setEnabled(false);
-        jPanel5.add(fU6);
+        panelbuttons.add(fU6);
         fU6.setBounds(10, 190, 50, 30);
-        jPanel5.add(jLabel6);
+        panelbuttons.add(jLabel6);
         jLabel6.setBounds(0, 0, 1940, 1190);
 
-        getContentPane().add(jPanel5);
-        jPanel5.setBounds(0, 0, 150, 270);
+        getContentPane().add(panelbuttons);
+        panelbuttons.setBounds(0, 0, 150, 270);
 
         jPanel7.setLayout(null);
 
@@ -412,31 +501,62 @@ public class InterficieGrafica extends javax.swing.JFrame {
 
         panelTauler.setBackground(new java.awt.Color(204, 255, 204));
         panelTauler.setLayout(null);
-
-        fitxa3.setText("w");
-        panelTauler.add(fitxa3);
-        fitxa3.setBounds(350, 230, 50, 50);
-        panelTauler.add(fitxa1);
-        fitxa1.setBounds(400, 230, 50, 50);
-
-        fitxa2.setText("e");
-        panelTauler.add(fitxa2);
-        fitxa2.setBounds(450, 230, 50, 50);
-
-        btnEsquerra.setText("Dreta");
-        btnEsquerra.setEnabled(false);
-        panelTauler.add(btnEsquerra);
-        btnEsquerra.setBounds(420, 480, 80, 23);
-
-        btnDreta.setText("Esquerra");
-        btnDreta.setEnabled(false);
-        btnDreta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDretaActionPerformed(evt);
-            }
-        });
-        panelTauler.add(btnDreta);
-        btnDreta.setBounds(280, 480, 80, 23);
+        panelTauler.add(l2);
+        l2.setBounds(50, 230, 50, 50);
+        panelTauler.add(l1);
+        l1.setBounds(0, 230, 50, 50);
+        panelTauler.add(l4);
+        l4.setBounds(150, 230, 50, 50);
+        panelTauler.add(l3);
+        l3.setBounds(100, 230, 50, 50);
+        panelTauler.add(l8);
+        l8.setBounds(350, 230, 50, 50);
+        panelTauler.add(l5);
+        l5.setBounds(200, 230, 50, 50);
+        panelTauler.add(l7);
+        l7.setBounds(300, 230, 50, 50);
+        panelTauler.add(l6);
+        l6.setBounds(250, 230, 50, 50);
+        panelTauler.add(l18);
+        l18.setBounds(750, 330, 50, 50);
+        panelTauler.add(l15);
+        l15.setBounds(700, 230, 50, 50);
+        panelTauler.add(l14);
+        l14.setBounds(650, 230, 50, 50);
+        panelTauler.add(l13);
+        l13.setBounds(600, 230, 50, 50);
+        panelTauler.add(l12);
+        l12.setBounds(550, 230, 50, 50);
+        panelTauler.add(l10);
+        l10.setBounds(450, 230, 50, 50);
+        panelTauler.add(l9);
+        l9.setBounds(400, 230, 50, 50);
+        panelTauler.add(l11);
+        l11.setBounds(500, 230, 50, 50);
+        panelTauler.add(l16);
+        l16.setBounds(750, 230, 50, 50);
+        panelTauler.add(l17);
+        l17.setBounds(750, 280, 50, 50);
+        panelTauler.add(l19);
+        l19.setBounds(700, 330, 50, 50);
+        panelTauler.add(l20);
+        l20.setBounds(650, 330, 50, 50);
+        panelTauler.add(l21);
+        l21.setBounds(600, 330, 50, 50);
+        panelTauler.add(l22);
+        l22.setBounds(550, 330, 50, 50);
+        panelTauler.add(l23);
+        l23.setBounds(500, 330, 50, 50);
+        panelTauler.add(l24);
+        l24.setBounds(450, 330, 50, 50);
+        panelTauler.add(l25);
+        l25.setBounds(400, 330, 50, 50);
+        panelTauler.add(l26);
+        l26.setBounds(350, 330, 50, 50);
+        panelTauler.add(l27);
+        l27.setBounds(300, 330, 50, 50);
+        panelTauler.add(l28);
+        l28.setBounds(250, 330, 50, 50);
 
         getContentPane().add(panelTauler);
         panelTauler.setBounds(150, 0, 940, 520);
@@ -462,21 +582,77 @@ public class InterficieGrafica extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDretaActionPerformed
-
-    }//GEN-LAST:event_btnDretaActionPerformed
-
     private void fU1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fU1ActionPerformed
-        setFitxaJug(fU1.getText());
     }//GEN-LAST:event_fU1ActionPerformed
 
-    public String setFitxaJug(String nom) {
-        return nom;
+    private void fU1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fU1MousePressed
+        crearFitxa(fU1.getName());
+    }//GEN-LAST:event_fU1MousePressed
+
+    private JLabel seleccionaLabel(int contador) {
+        switch (contador) {
+            case 1:
+                return l1;
+            case 2:
+                return l2;
+            case 3:
+                return l3;
+            case 4:
+                return l4;
+            case 5:
+                return l5;
+            case 6:
+                return l6;
+            case 7:
+                return l7;
+            case 8:
+                return l8;
+            case 9:
+                return l9;
+            case 10:
+                return l10;
+            case 11:
+                return l11;
+            case 12:
+                return l12;
+            case 13:
+                return l13;
+            case 14:
+                return l14;
+            case 15:
+                return l15;
+            case 16:
+                return l16;
+            case 17:
+                return l17;
+            case 18:
+                return l18;
+            case 19:
+                return l19;
+            case 20:
+                return l20;
+            case 21:
+                return l21;
+            case 22:
+                return l22;
+            case 23:
+                return l23;
+            case 24:
+                return l24;
+            case 25:
+                return l25;
+            case 26:
+                return l26;
+            case 27:
+                return l27;
+            case 28:
+                return l28;
+            default:
+                return null;
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDreta;
-    private javax.swing.JButton btnEsquerra;
     private javax.swing.JMenu confOption;
     private javax.swing.JLabel fB11;
     private javax.swing.JLabel fB12;
@@ -506,9 +682,6 @@ public class InterficieGrafica extends javax.swing.JFrame {
     private javax.swing.JButton fU5;
     private javax.swing.JButton fU6;
     private javax.swing.JButton fU7;
-    private javax.swing.JLabel fitxa1;
-    private javax.swing.JLabel fitxa2;
-    private javax.swing.JLabel fitxa3;
     private javax.swing.JMenu inicioOption;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel29;
@@ -517,14 +690,42 @@ public class InterficieGrafica extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel l1;
+    private javax.swing.JLabel l10;
+    private javax.swing.JLabel l11;
+    private javax.swing.JLabel l12;
+    private javax.swing.JLabel l13;
+    private javax.swing.JLabel l14;
+    private javax.swing.JLabel l15;
+    private javax.swing.JLabel l16;
+    private javax.swing.JLabel l17;
+    private javax.swing.JLabel l18;
+    private javax.swing.JLabel l19;
+    private javax.swing.JLabel l2;
+    private javax.swing.JLabel l20;
+    private javax.swing.JLabel l21;
+    private javax.swing.JLabel l22;
+    private javax.swing.JLabel l23;
+    private javax.swing.JLabel l24;
+    private javax.swing.JLabel l25;
+    private javax.swing.JLabel l26;
+    private javax.swing.JLabel l27;
+    private javax.swing.JLabel l28;
+    private javax.swing.JLabel l3;
+    private javax.swing.JLabel l4;
+    private javax.swing.JLabel l5;
+    private javax.swing.JLabel l6;
+    private javax.swing.JLabel l7;
+    private javax.swing.JLabel l8;
+    private javax.swing.JLabel l9;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem numJugOption;
     private javax.swing.JPanel panelTauler;
+    private javax.swing.JPanel panelbuttons;
     private javax.swing.JMenu salirOption;
     private javax.swing.JTextField tfBot1;
     private javax.swing.JTextField tfBot2;
@@ -541,19 +742,60 @@ public class InterficieGrafica extends javax.swing.JFrame {
         this.nomJugs = nomJugs;
     }
 
-    public JButton getBtnDreta() {
-        return btnDreta;
+    public JButton getfU1() {
+        return fU1;
     }
 
-    public void setBtnDreta(JButton btnDreta) {
-        this.btnDreta = btnDreta;
+    public void setfU1(JButton fU1) {
+        this.fU1 = fU1;
     }
 
-    public JButton getBtnEsquerra() {
-        return btnEsquerra;
+    public JButton getfU2() {
+        return fU2;
     }
 
-    public void setBtnEsquerra(JButton btnEsquerra) {
-        this.btnEsquerra = btnEsquerra;
+    public void setfU2(JButton fU2) {
+        this.fU2 = fU2;
     }
+
+    public JButton getfU3() {
+        return fU3;
+    }
+
+    public void setfU3(JButton fU3) {
+        this.fU3 = fU3;
+    }
+
+    public JButton getfU4() {
+        return fU4;
+    }
+
+    public void setfU4(JButton fU4) {
+        this.fU4 = fU4;
+    }
+
+    public JButton getfU5() {
+        return fU5;
+    }
+
+    public void setfU5(JButton fU5) {
+        this.fU5 = fU5;
+    }
+
+    public JButton getfU6() {
+        return fU6;
+    }
+
+    public void setfU6(JButton fU6) {
+        this.fU6 = fU6;
+    }
+
+    public JButton getfU7() {
+        return fU7;
+    }
+
+    public void setfU7(JButton fU7) {
+        this.fU7 = fU7;
+    }
+
 }
