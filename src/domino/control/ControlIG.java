@@ -34,11 +34,11 @@ public class ControlIG {
     public void inici() {
         ig.setJugNom();
         joc.iniciar(ig.getNomJugs());
+        ig.setImgFitxer();
         torn.inicial();
         ig.setFitxasTauler(joc.getFitxaInicial(), false);
         joc.setTorn(joc.getTorn());
         joc.actualitzarEstat();
-        ig.setImgFitxer();
         do {
             if (joc.getJugadors()[joc.getTorn()].getNom().equals(ig.getNomJugs()[0])) {
                 System.out.println("Te toca jug " + joc.getJugadors()[joc.getTorn()]);
