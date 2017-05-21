@@ -112,21 +112,18 @@ public class InterficieGrafica extends javax.swing.JFrame {
         return opcion;
     }
 
-    public int escogirFitxa() {
-        List<String> option = new ArrayList<>();
-        for (Fitxa fitxe : joc.getJugadors()[0].getFitxes()) {
-            option.add(fitxe.toString());
-        }
-        String[] options = new String[option.size()];
-        for (int i = 0; i < options.length; i++) {
-            options[i] = option.get(i);
+    public int escogirFitxa(List<Fitxa> fitxasJug) {
+        String[] options = new String[7];
+        for (int i = 0; i < fitxasJug.size(); i++) {
+            options[i] = fitxasJug.get(i).toString();
         }
         int opcion = JOptionPane.showOptionDialog(null, "Escoje una Opcion:", "opciones", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        options = null;
         return opcion;
     }
 
     public Fitxa seleccionarFitxaJug() {
-        int fitxaEscogida = escogirFitxa();
+        int fitxaEscogida = escogirFitxa(joc.getJugadors()[0].getFitxes());
         hideFitxes(fitxaEscogida);
         crearFitxa(joc.getJugadors()[0].getFitxes().get(fitxaEscogida).toString());
         return fitx;
@@ -145,25 +142,25 @@ public class InterficieGrafica extends javax.swing.JFrame {
 
     public void hideFitxes(int fitxaPosicio) {
         switch (fitxaPosicio) {
-            case 1:
+            case 0:
                 fU1.setVisible(false);
                 break;
-            case 2:
+            case 1:
                 fU2.setVisible(false);
                 break;
-            case 3:
+            case 2:
                 fU3.setVisible(false);
                 break;
-            case 4:
+            case 3:
                 fU4.setVisible(false);
                 break;
-            case 5:
+            case 4:
                 fU5.setVisible(false);
                 break;
-            case 6:
+            case 5:
                 fU6.setVisible(false);
                 break;
-            case 7:
+            case 6:
                 fU7.setVisible(false);
                 break;
         }

@@ -81,7 +81,6 @@ public class ControlIG {
                     passar = true;
                     break;
                 }
-                orientacio = true;
             } else if (fitxa.getValors()[0] == fitxaDreta.getValors()[1] || fitxa.getValors()[1] == fitxaDreta.getValors()[1]) {
                 if (fitxa.getValors()[0] == fitxaDreta.getValors()[1]) {
                     torn.colocarUnaFitxa(fitxa, false);
@@ -92,7 +91,6 @@ public class ControlIG {
                     torn.colocarUnaFitxa(fitxa, false);
                     break;
                 }
-                orientacio = false;
             }
         }
     }
@@ -103,23 +101,19 @@ public class ControlIG {
         boolean ok = false;
         do {
             if (posicio == 0) {
-                if (joc.getFitxesJugades().getFirst().getValors()[0] == fitxa.getValors()[1]) {
+                if (joc.getFitxesJugades().getFirst().getValors()[0] == fitxa.getValors()[1] || joc.getFitxesJugades().getFirst().getValors()[0] == fitxa.getValors()[0]) {
                     torn.colocarUnaFitxa(fitxa, true);
                     ok = true;
-                } else if (joc.getFitxesJugades().getFirst().getValors()[0] == fitxa.getValors()[0]) {
-                    torn.colocarUnaFitxa(fitxa, true);
-                    ok = true;
-                }
-            } else {
-                if (joc.getFitxesJugades().getLast().getValors()[1] == fitxa.getValors()[0]) {
-                    torn.colocarUnaFitxa(fitxa, false);
-                    ok = true;
-                } else if (joc.getFitxesJugades().getLast().getValors()[1] == fitxa.getValors()[1]) {
-                    torn.colocarUnaFitxa(fitxa, false);
-                    ok = true;
+                } else {
+                    if (joc.getFitxesJugades().getLast().getValors()[1] == fitxa.getValors()[0] || joc.getFitxesJugades().getLast().getValors()[1] == fitxa.getValors()[1]) {
+                        torn.colocarUnaFitxa(fitxa, false);
+                        ok = true;
+                    }
                 }
             }
+
         } while (!ok);
+
     }
 
     public Joc getJoc() {
