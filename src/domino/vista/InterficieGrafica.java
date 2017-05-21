@@ -9,16 +9,9 @@ import domino.control.ControlIG;
 import domino.model.Fitxa;
 import domino.model.Joc;
 import domino.model.Jugador;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -92,43 +85,51 @@ public class InterficieGrafica extends javax.swing.JFrame {
         }
     }
 
-    public int setCostat(boolean costat) {
-        if (costat) {
-            return 0;
-        } else {
-            return 1;
-        }
-    }
-
+    /**
+     * Metode per escogir quina opció vol fer l'usuari.
+     * @return 
+     */
     public int tornJugador() {
         String[] options = {"Passar", "Jugar"};
         int opcion = JOptionPane.showOptionDialog(null, "Escoje una Opcion:", "opciones", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
         return opcion;
     }
-
+    /**
+     * Metode per escogir la posició en la que anira la fitxa.
+     * @return 
+     */
     public int escogirPosicion() {
         String[] options = {"Esquerra", "Dreta"};
         int opcion = JOptionPane.showOptionDialog(null, "Escoje una Opcion:", "opciones", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
         return opcion;
     }
-
+    /**
+     * Metode per escogir quina fitxa vol jugar l'usuari.
+     * @param fitxasJug
+     * @return 
+     */
     public int escogirFitxa(List<Fitxa> fitxasJug) {
-        String[] options = new String[7];
-        for (int i = 0; i < fitxasJug.size(); i++) {
+        String[] options = new String[fitxasJug.size()];
+        for (int i = 0; i < options.length; i++) {
             options[i] = fitxasJug.get(i).toString();
         }
         int opcion = JOptionPane.showOptionDialog(null, "Escoje una Opcion:", "opciones", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
-        options = null;
         return opcion;
     }
-
+    /**
+     * Metode que gestiona quina fitxa s'escogeix, la posa invisible a la taula del usuari per no veure-la i retorna una fitxa al control per jugarla.
+     * @return 
+     */
     public Fitxa seleccionarFitxaJug() {
         int fitxaEscogida = escogirFitxa(joc.getJugadors()[0].getFitxes());
         hideFitxes(fitxaEscogida);
         crearFitxa(joc.getJugadors()[0].getFitxes().get(fitxaEscogida).toString());
         return fitx;
     }
-
+    /**
+     * Metode que mitjançant els valors de la fitxa escogida crea una objecte Fitxa.
+     * @param valorsFitxa 
+     */
     public void crearFitxa(String valorsFitxa) {
         valorsFitxa = valorsFitxa.replace("[", "");
         valorsFitxa = valorsFitxa.replace("]", "");
@@ -139,7 +140,10 @@ public class InterficieGrafica extends javax.swing.JFrame {
         }
         fitx = new Fitxa(val);
     }
-
+    /**
+     * Metode per ocultar la fitxa escogida depenent de quina sigui.
+     * @param fitxaPosicio 
+     */
     public void hideFitxes(int fitxaPosicio) {
         switch (fitxaPosicio) {
             case 0:
@@ -585,7 +589,11 @@ public class InterficieGrafica extends javax.swing.JFrame {
     private void fU1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fU1MousePressed
         crearFitxa(fU1.getName());
     }//GEN-LAST:event_fU1MousePressed
-
+    /**
+     * Metode per colocar les fitxes en l'ordre corresponent.
+     * @param contador
+     * @return 
+     */
     private JLabel seleccionaLabel(int contador) {
         switch (contador) {
             case 1:
@@ -737,62 +745,6 @@ public class InterficieGrafica extends javax.swing.JFrame {
 
     public void setNomJugs(String[] nomJugs) {
         this.nomJugs = nomJugs;
-    }
-
-    public JButton getfU1() {
-        return fU1;
-    }
-
-    public void setfU1(JButton fU1) {
-        this.fU1 = fU1;
-    }
-
-    public JButton getfU2() {
-        return fU2;
-    }
-
-    public void setfU2(JButton fU2) {
-        this.fU2 = fU2;
-    }
-
-    public JButton getfU3() {
-        return fU3;
-    }
-
-    public void setfU3(JButton fU3) {
-        this.fU3 = fU3;
-    }
-
-    public JButton getfU4() {
-        return fU4;
-    }
-
-    public void setfU4(JButton fU4) {
-        this.fU4 = fU4;
-    }
-
-    public JButton getfU5() {
-        return fU5;
-    }
-
-    public void setfU5(JButton fU5) {
-        this.fU5 = fU5;
-    }
-
-    public JButton getfU6() {
-        return fU6;
-    }
-
-    public void setfU6(JButton fU6) {
-        this.fU6 = fU6;
-    }
-
-    public JButton getfU7() {
-        return fU7;
-    }
-
-    public void setfU7(JButton fU7) {
-        this.fU7 = fU7;
-    }
+    }  
 
 }

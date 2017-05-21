@@ -5,8 +5,8 @@ import java.util.List;
 
 public  class Jugador {
     private String nom;
-    private List<Fitxa> fitxes;
-
+    public List<Fitxa> fitxes;
+ 
     public Jugador( String nom) {      
         this.nom = nom;
         fitxes = new ArrayList();
@@ -38,6 +38,7 @@ public  class Jugador {
     public String toString() {
         return "Jugador{ nom=" + nom + ", fitxes=" + fitxes + '}';
     }
+
     
 
 }

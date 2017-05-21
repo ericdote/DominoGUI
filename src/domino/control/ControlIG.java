@@ -10,8 +10,6 @@ import domino.model.Joc;
 import domino.model.Jugador;
 import domino.model.Torn;
 import domino.vista.InterficieGrafica;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,14 +22,18 @@ public class ControlIG {
     private final InterficieGrafica ig;
     private Torn torn;
     private Jugador jug;
-
+    /**
+     * Constructor que inicialitza el joc.
+     */
     public ControlIG() {
         this.joc = new Joc(4, 28, 7);
         this.torn = new Torn(joc);
         this.ig = new InterficieGrafica(this);
         ig.setVisible(true);
     }
-
+    /**
+     * Metode que inicia el joc, crea els jugadors, reparteix fitxes i fa que la partida duri fins que un sigui guanyador.
+     */
     public void inici() {
         ig.setJugNom();
         joc.iniciar(ig.getNomJugs());
@@ -62,39 +64,29 @@ public class ControlIG {
         } while (!joc.isFinalitzat());
         JOptionPane.showMessageDialog(null, "El guanyador es" + joc.getGuanyador());
     }
-
+    /**
+     * Metode que gestiona la jugada que fara la maquina.
+     */
     public void turnBot() {
-        Fitxa fitxaEsquerra = joc.getFitxesJugades().getFirst();
-        Fitxa fitxaDreta = joc.getFitxesJugades().getLast();
         Fitxa fitxa = null;
         boolean passar = false, orientacio = false;
         for (int i = 0; i < joc.getJugadors()[joc.getTorn()].getFitxes().size(); i++) {
             fitxa = joc.getJugadors()[joc.getTorn()].getFitxes().get(i);
             System.out.println(fitxa);
-            if (fitxa.getValors()[0] == fitxaEsquerra.getValors()[0] || fitxa.getValors()[1] == fitxaEsquerra.getValors()[0]) {
-                if (fitxa.getValors()[0] == fitxaEsquerra.getValors()[0]) {
+            if (fitxa.getValors()[0] == joc.getFitxesJugades().getFirst().getValors()[0] || fitxa.getValors()[1] == joc.getFitxesJugades().getFirst().getValors()[0]) {
                     torn.colocarUnaFitxa(fitxa, true);
                     passar = true;
                     break;
-                } else if (fitxa.getValors()[1] == fitxaEsquerra.getValors()[0]) {
-                    torn.colocarUnaFitxa(fitxa, true);
-                    passar = true;
-                    break;
-                }
-            } else if (fitxa.getValors()[0] == fitxaDreta.getValors()[1] || fitxa.getValors()[1] == fitxaDreta.getValors()[1]) {
-                if (fitxa.getValors()[0] == fitxaDreta.getValors()[1]) {
+            } else if (fitxa.getValors()[0] == joc.getFitxesJugades().getLast().getValors()[1] || fitxa.getValors()[1] == joc.getFitxesJugades().getLast().getValors()[1]) {
                     torn.colocarUnaFitxa(fitxa, false);
                     passar = true;
                     break;
-                } else if (fitxa.getValors()[1] == fitxaDreta.getValors()[1]) {
-                    passar = true;
-                    torn.colocarUnaFitxa(fitxa, false);
-                    break;
-                }
             }
         }
     }
-
+    /**
+     * Metode que gestiona la jugada del usuari.
+     */
     public void tornJugador() {
         Fitxa fitxa = ig.seleccionarFitxaJug();
         int posicio = ig.escogirPosicion();
@@ -102,20 +94,17 @@ public class ControlIG {
         do {
             if (posicio == 0) {
                 if (joc.getFitxesJugades().getFirst().getValors()[0] == fitxa.getValors()[1] || joc.getFitxesJugades().getFirst().getValors()[0] == fitxa.getValors()[0]) {
-                    torn.colocarUnaFitxa(fitxa, true);
-                    ok = true;
-                } else {
-                    if (joc.getFitxesJugades().getLast().getValors()[1] == fitxa.getValors()[0] || joc.getFitxesJugades().getLast().getValors()[1] == fitxa.getValors()[1]) {
-                        torn.colocarUnaFitxa(fitxa, false);
-                        ok = true;
-                    }
+                    ok = torn.colocarUnaFitxa(fitxa, true);
+                }
+            } else {
+                if (joc.getFitxesJugades().getLast().getValors()[1] == fitxa.getValors()[0] || joc.getFitxesJugades().getLast().getValors()[1] == fitxa.getValors()[1]) {
+                    ok = torn.colocarUnaFitxa(fitxa, false);
                 }
             }
-
         } while (!ok);
 
     }
-
+    
     public Joc getJoc() {
         return joc;
     }
